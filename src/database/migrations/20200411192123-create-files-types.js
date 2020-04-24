@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('events', {
+    return queryInterface.createTable('files-types', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -13,24 +13,7 @@ module.exports = {
       },
       description: {
         type: Sequelize.STRING,
-        allowNull: false,
-      },
-      canceled_at: {
-        type: Sequelize.DATE,
         allowNull: true,
-      },
-      enabled: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: true,
-      },
-      address: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      time: {
-        type: Sequelize.DATE,
-        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -44,6 +27,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('events');
+    return queryInterface.dropTable('files-types');
   },
 };

@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('events', {
+    return queryInterface.createTable('files', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -11,12 +11,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      description: {
+      type: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      canceled_at: {
-        type: Sequelize.DATE,
+      event_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'events', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
         allowNull: true,
       },
       enabled: {
@@ -24,13 +27,14 @@ module.exports = {
         allowNull: false,
         defaultValue: true,
       },
-      address: {
+      path: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
-      time: {
+      canceled_at: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: true,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -44,6 +48,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('events');
+    return queryInterface.dropTable('files');
   },
 };

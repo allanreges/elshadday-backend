@@ -8,6 +8,7 @@ import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
 import EventController from './app/controllers/EventController';
 import LivesController from './app/controllers/LivesController';
+import PraysController from './app/controllers/PraysController';
 
 const routes = new Router();
 const upload = multer(multerConfig);
@@ -30,5 +31,9 @@ routes.delete('/events/:id', EventController.delete);
 
 routes.post('/lives', LivesController.store);
 routes.delete('/lives/:id', LivesController.delete);
+
+routes.post('/prays', PraysController.store);
+routes.get('/prays', PraysController.index);
+routes.delete('/prays/:id', PraysController.delete);
 
 export default routes;

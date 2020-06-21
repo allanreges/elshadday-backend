@@ -17,6 +17,7 @@ routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 routes.get('/events', EventController.index);
 routes.get('/lives', LivesController.index);
+routes.post('/prays', PraysController.store);
 
 routes.use(authMiddleware);
 
@@ -32,7 +33,6 @@ routes.delete('/events/:id', EventController.delete);
 routes.post('/lives', LivesController.store);
 routes.delete('/lives/:id', LivesController.delete);
 
-routes.post('/prays', PraysController.store);
 routes.get('/prays', PraysController.index);
 routes.delete('/prays/:id', PraysController.delete);
 

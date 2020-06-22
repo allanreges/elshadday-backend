@@ -1,8 +1,16 @@
 import File from './models/File';
 
+const upload = require('../../config/multer');
+
+const singleUpload = upload.single('file');
+
 class FileController {
   async store(req, res) {
-    const { originalname: name, filename: path } = req.file;
+    const {
+      originalname: name,
+      filename: originalname,
+      location: path,
+    } = req.file;
     const { type, event_id, enabled } = req.body;
 
     const file = await File.create({
@@ -13,7 +21,9 @@ class FileController {
       enabled,
     });
 
-    return res.json(file);
+    singleUpload(req, res, function (err) {
+      return res.json({ file });
+    });
   }
 
   async delete(req, res) {

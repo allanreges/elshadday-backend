@@ -18,9 +18,9 @@ routes.post('/sessions', SessionController.store);
 routes.get('/events', EventController.index);
 routes.get('/lives', LivesController.index);
 routes.get('/prays', PraysController.index);
+routes.post('/prays', PraysController.store);
 
 routes.use(authMiddleware);
-routes.post('/prays', PraysController.store);
 
 routes.put('/users', UserController.update);
 

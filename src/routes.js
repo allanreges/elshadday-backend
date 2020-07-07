@@ -20,8 +20,6 @@ routes.get('/lives', LivesController.index);
 routes.get('/prays', PraysController.index);
 routes.post('/prays', PraysController.store);
 
-routes.use(authMiddleware);
-
 routes.put('/users', UserController.update);
 
 routes.post('/files', upload.single('file'), FileController.store);
@@ -35,5 +33,7 @@ routes.post('/lives', LivesController.store);
 routes.delete('/lives/:id', LivesController.delete);
 
 routes.delete('/prays/:id', PraysController.delete);
+
+routes.use(authMiddleware);
 
 export default routes;

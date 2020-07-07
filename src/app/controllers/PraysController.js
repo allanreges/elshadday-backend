@@ -33,6 +33,9 @@ class Prays {
   async index(req, res) {
     const prays = await Pray.findAll({
       attributes: ['name', 'description', 'id', 'enabled'],
+      where: {
+        enabled: true,
+      },
     });
 
     return res.json({ prays });

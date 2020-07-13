@@ -33,6 +33,7 @@ class Lives {
   async index(req, res) {
     const lives = await Live.findAll({
       attributes: ['id', 'description', 'url'],
+      where: { enabled: true },
     });
 
     return res.json({ lives });

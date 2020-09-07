@@ -53,7 +53,7 @@ class Products {
 
     const product = await Product.findByPk(req.body.id);
 
-    const { id, name, classes, price, description } = await product.create(
+    const { id, name, classes, price, description } = await product.update(
       req.body
     );
 

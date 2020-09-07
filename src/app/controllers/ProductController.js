@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import Product from './models/Product';
-import File from './models/File';
+import ProductImage from './models/ProductImage';
 
 class Products {
   async store(req, res) {
@@ -71,7 +71,7 @@ class Products {
       attributes: ['id', 'name', 'address', 'description', 'classes', 'price'],
       include: [
         {
-          model: File,
+          model: ProductImage,
           where: { enabled: true },
           required: false,
           as: 'images',

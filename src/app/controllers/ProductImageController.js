@@ -1,4 +1,4 @@
-import File from './models/ProductImage';
+import ProductImages from './models/ProductImage';
 
 const upload = require('../../config/multer');
 
@@ -13,7 +13,7 @@ class ProductImage {
     } = req.file;
     const { type, event_id, enabled } = req.body;
 
-    const file = await File.create({
+    const productImages = await ProductImages.create({
       name,
       path,
       type,
@@ -22,19 +22,19 @@ class ProductImage {
     });
 
     singleUpload(req, res, function (err) {
-      return res.json({ file });
+      return res.json({ productImages });
     });
   }
 
   async delete(req, res) {
-    const file = await File.findByPk(req.params.id);
+    const productImages = await ProductImages.findByPk(req.params.id);
 
-    file.canceled_at = new Date();
-    file.enabled = false;
+    productImages.canceled_at = new Date();
+    productImages.enabled = false;
 
-    await file.save();
+    await productImages.save();
 
-    return res.json({ file });
+    return res.json({ productImages });
   }
 }
 

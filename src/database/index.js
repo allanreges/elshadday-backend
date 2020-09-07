@@ -6,8 +6,9 @@ import File from '../app/controllers/models/File';
 import Events from '../app/controllers/models/Events';
 import Lives from '../app/controllers/models/Lives';
 import Prays from '../app/controllers/models/Prays';
+import Product from '../app/controllers/models/Product';
 
-const models = [User, File, Events, Lives, Prays];
+const models = [User, File, Events, Lives, Prays, Product];
 
 class Database {
   constructor() {

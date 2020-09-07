@@ -17,6 +17,10 @@ class Product extends Model {
 
     return this;
   }
+
+  static associate(models) {
+    this.hasMany(models.ProductImage, { foreignKey: 'event_id', as: 'images' });
+  }
 }
 
 export default Product;

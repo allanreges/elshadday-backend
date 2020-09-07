@@ -23,6 +23,8 @@ routes.get('/lives', LivesController.index);
 routes.get('/prays', PraysController.index);
 routes.post('/prays', PraysController.store);
 routes.post('/product', ProductController.store);
+routes.put('/product', ProductController.update);
+routes.delete('/product/:id', ProductController.delete);
 routes.get('/product', ProductController.index);
 
 routes.post('/product-reservations', ProductReservationsController.store);

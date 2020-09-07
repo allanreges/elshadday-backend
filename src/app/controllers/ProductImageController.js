@@ -1,4 +1,4 @@
-import File from './models/File';
+import File from './models/ProductImage';
 
 const upload = require('../../config/multer');
 

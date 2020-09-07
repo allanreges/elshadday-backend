@@ -22,6 +22,7 @@ routes.get('/lives', LivesController.index);
 routes.get('/prays', PraysController.index);
 routes.post('/prays', PraysController.store);
 routes.post('/product', ProductController.store);
+routes.get('/product', ProductController.index);
 
 routes.put('/users', UserController.update);
 

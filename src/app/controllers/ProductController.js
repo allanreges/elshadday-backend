@@ -67,7 +67,7 @@ class Products {
   }
 
   async index(req, res) {
-    const product = await product.findAll({
+    const product = await Product.findAll({
       attributes: ['id', 'name', 'description', 'classes', 'price'],
       include: [
         {

@@ -9,6 +9,7 @@ import EventController from './app/controllers/EventController';
 import ProductController from './app/controllers/ProductController';
 import LivesController from './app/controllers/LivesController';
 import PraysController from './app/controllers/PraysController';
+import ProductReservationsController from './app/controllers/ProductReservationsController';
 import multerConfig from './config/multer';
 
 const upload = multer(multerConfig);
@@ -23,6 +24,9 @@ routes.get('/prays', PraysController.index);
 routes.post('/prays', PraysController.store);
 routes.post('/product', ProductController.store);
 routes.get('/product', ProductController.index);
+
+routes.post('/product-reservations', ProductReservationsController.store);
+routes.get('/product-reservations', ProductReservationsController.index);
 
 routes.put('/users', UserController.update);
 

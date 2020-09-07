@@ -8,8 +8,18 @@ import Lives from '../app/controllers/models/Lives';
 import Prays from '../app/controllers/models/Prays';
 import Product from '../app/controllers/models/Product';
 import ProductImage from '../app/controllers/models/ProductImage';
+import ProductReservations from '../app/controllers/models/ProductReservations';
 
-const models = [User, File, Events, Lives, Prays, Product, ProductImage];
+const models = [
+  User,
+  File,
+  Events,
+  Lives,
+  Prays,
+  Product,
+  ProductImage,
+  ProductReservations,
+];
 
 class Database {
   constructor() {
